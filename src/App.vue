@@ -1,22 +1,6 @@
 <template>
   <v-app>
-    <v-toolbar app color="teal" dark>
-      <v-toolbar-title>
-        <router-link to="/" style="cursor: pointer">
-          {{ appTitle }}
-        </router-link>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-toolbar-items>
-        <v-btn
-          flat
-          v-for="item in menuItems"
-          :key="item.title"
-          :to="item.path">
-          {{ item.title }}
-        </v-btn>
-      </v-toolbar-items>
-    </v-toolbar>
+    <NavBar/>
     <v-contant>
       <router-view></router-view>
     </v-contant>
@@ -26,7 +10,7 @@
 </template>
 
 <script>
-//import HelloWorld from "./components/HelloWorld";
+import NavBar from "./components/NavBar";
 
 export default {
   name: "App",
@@ -40,6 +24,9 @@ export default {
       ]
     }
   },
+  components: {
+    NavBar
+  }
 };
 </script>
 <style></style>
