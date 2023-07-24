@@ -1,16 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router'
 const routerOptions = [
-  { path: "/", component: "LandingPage" },
-  { path: "/signin", component: "SignIn" },
-  { path: "/signup", component: "SignUp" },
+  { path: "/", component: "HomePage" },
+  { path: "/login", component: "LoginPage" },
+  { path: "/register", component: "RegisterPage" },
   { path: "/home", component: "HomePage", meta: { requiresAuth: true } },
-  { path: "/:catchAll(.*)", component: "NotFound" }
+  { path: "/:catchAll(.*)", component: "NotFoundPage" }
 ];
 
 const routes = routerOptions.map(route => {
   return {
     ...route,
-    component: () => import(`../components/${route.component}.vue`)
+    component: () => import(`../views/${route.component}.vue`)
   };
 });
 
